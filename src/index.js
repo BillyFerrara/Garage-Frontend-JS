@@ -14,7 +14,7 @@ function fetchDrivers(){
     fetch(driverURL)
     .then(response => response.json())
     //.then(console.log)
-    .then(drivers => drivers.forEach(console.log))
+    .then(drivers => drivers.forEach(renderDriver))
 }
 
 driverForm.addEventListener('submit', submitDriver)
@@ -33,15 +33,15 @@ function submitDriver() {
      })
     }
     fetch(driverURL, configObj)
-    renderDriver();
+    renderDriver(driverInput.value);
 }
 
-function renderDriver() {
-    event.preventDefault();
+function renderDriver(driver) {
+   // event.preventDefault();
    // console.log('submited')
    const li = document.createElement('li');
    const p = document.createElement('p');
-   p.innerHTML = driverInput.value
+   p.innerHTML = driver
    li.append(p)
    driverList.appendChild(li)
    driverForm.reset();
