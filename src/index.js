@@ -10,6 +10,13 @@ const driverInput = document.getElementById('driver-input')
 
 const driverList = document.getElementById('driver-list')
 
+function fetchDrivers(){
+    fetch(driverURL)
+    .then(response => response.json())
+    //.then(console.log)
+    .then(drivers => drivers.forEach(console.log))
+}
+
 driverForm.addEventListener('submit', submitDriver)
 
 // Submitting New Driver to DB
@@ -39,4 +46,6 @@ function renderDriver() {
    driverList.appendChild(li)
    driverForm.reset();
 }
+
+fetchDrivers();
 
