@@ -14,7 +14,7 @@ function fetchDrivers(){
     fetch(driverURL)
     .then(response => response.json())
     //.then(console.log)
-    .then(drivers => drivers.forEach(renderDriver))
+    .then(drivers => drivers.forEach(driver => renderDriver(driver.name)))
 }
 
 driverForm.addEventListener('submit', submitDriver)
