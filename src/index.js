@@ -14,6 +14,7 @@ function fetchDrivers(){
     fetch(driverURL)
     .then(response => response.json())
     //.then(console.log)
+    // For each (Variable => (renderDriver(driver.name)) converts the object to a readable string that can be displayed)
     .then(drivers => drivers.forEach(driver => renderDriver(driver.name)))
 }
 
@@ -46,6 +47,18 @@ function renderDriver(driver) {
    driverList.appendChild(li)
    driverForm.reset();
 }
+
+function renderCars(){
+    const carInput = e.target.children[0].value
+    const CarList = e.target.nextElementSibling
+
+    const li = document.createElement('li');
+    li.innerHTML = carInput
+    CarList.appendChild(li)
+    e.target.reset(); 
+
+}
+
 
 fetchDrivers();
 
