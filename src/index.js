@@ -59,6 +59,19 @@ function renderCars(){
 
 }
 
+function submitCar(car){
+    fetch(carURL, {
+        method: 'POST',
+        headers: {
+        "content-type": "application/json",
+        "accept": "application/json" 
+    },
+        body: JSON.stringify({
+            content: car 
+        })
+    })
+}
+
 
 fetchDrivers();
 
